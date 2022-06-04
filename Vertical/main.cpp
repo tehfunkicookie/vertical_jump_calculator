@@ -61,7 +61,11 @@ int main(){
     std::cin >> choice;
     std::cout << std::endl;
     
-//    std::vector<std::vector<double>> record_of_calculations;
+    if (choice < 1 || choice > 5 || isdigit(choice)){
+        std::cout << "Your entry is not valid. Goodbye." << std::endl;
+        return 0;
+    }
+    
     while (choice !=5){
         if (choice==1){
             // enter in function for vertical jump based on input of squat weight
@@ -153,6 +157,8 @@ void output_to_file(){
             outfile << i+1 << "                      " << "If you can or want to jump " << record_of_calculations[i][1] << " inches, you have to squat at least " << record_of_calculations[i][2] << " lbs.\n" << std::endl;       
         }
     }
+    
+    outfile.close();
     std::cout << std::endl;
 }
 
